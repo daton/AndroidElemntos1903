@@ -80,9 +80,7 @@ class ActivityNavegacion : AppCompatActivity(), NavigationView.OnNavigationItemS
             R.id.nav_share -> {
 
             }
-            R.id.nav_send -> {
 
-            }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
