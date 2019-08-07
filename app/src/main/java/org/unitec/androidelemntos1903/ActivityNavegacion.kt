@@ -11,6 +11,9 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.view.View
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_activity_navegacion.*
 
 class ActivityNavegacion : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -21,11 +24,10 @@ class ActivityNavegacion : AppCompatActivity(), NavigationView.OnNavigationItemS
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+
+
+
+
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val toggle = ActionBarDrawerToggle(
@@ -35,6 +37,12 @@ class ActivityNavegacion : AppCompatActivity(), NavigationView.OnNavigationItemS
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+
+        //Aqui administro mis layouts
+          guardar_profesor.visibility= View.INVISIBLE
+
+
+
     }
 
     override fun onBackPressed() {
@@ -67,23 +75,32 @@ class ActivityNavegacion : AppCompatActivity(), NavigationView.OnNavigationItemS
         when (item.itemId) {
             R.id.nav_home -> {
                 // Handle the camera action
+                ocularTodos()
+                guardar_profesor.visibility= View.VISIBLE
+
+
             }
             R.id.nav_gallery -> {
-
+   ocularTodos()
             }
             R.id.nav_slideshow -> {
-
+ocularTodos()
             }
             R.id.nav_tools -> {
-
+ocularTodos()
             }
             R.id.nav_share -> {
-
+                ocularTodos()
             }
 
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    fun ocularTodos(){
+        inicial.visibility=View.INVISIBLE
+        guardar_profesor.visibility=View.INVISIBLE
     }
 }
